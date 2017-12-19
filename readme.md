@@ -236,6 +236,24 @@ INSERT INTO words (uuid, words) VALUES (UUID(), 'cupiditate / culpa / voluptatem
 
 It is recommend to use the `--enclosure` option. each occurrence of the `--enclosure` char will be escaped with the `--escape` char, which is `\\` by default.
 
+## Completion
+
+Currently only bash is supported. Your `faker-cli.php` or `faker.phar` must be in your `PATH` env.
+
+### Phar
+You must download `https://raw.githubusercontent.com/bit3/faker-cli/master/completions/bash_completion.sh` somewhere and source this file in `.bashrc`  
+
+```bash
+source DOWNLOAD_PATH/bash_completion.sh
+```
+
+### Composer
+
+You only need source `completions/bash_completion.sh` in your `.bashrc`
+``` bash
+source PATH_TO_FAKER_CLI/completions/bash_completion.sh
+```
+
 ## Build your own Phar
 
 Install and run php-box:

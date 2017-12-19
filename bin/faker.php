@@ -22,13 +22,19 @@ class FakerApplication extends \Symfony\Component\Console\Application
 
 	protected function getCommandName(\Symfony\Component\Console\Input\InputInterface $input)
 	{
-		return 'faker:generate';
+        $firstArgument = $input->getFirstArgument();
+        if ($firstArgument === 'list-types') {
+            return 'list-types';
+        }
+
+        return 'faker:generate';
 	}
 
 	protected function getDefaultCommands()
 	{
 		$defaultCommands   = parent::getDefaultCommands();
 		$defaultCommands[] = new \Bit3\FakerCli\Command\GenerateCommand();
+		$defaultCommands[] = new \Bit3\FakerCli\Command\ListTypesCommand();
 		return $defaultCommands;
 	}
 
